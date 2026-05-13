@@ -12,6 +12,25 @@ declare(strict_types=1);
  * Scenario: A file storage system with granular capability interfaces.
  */
 
+// ╔══════════════════════════════════════════════════════════════════════════╗
+// ║  SOLID CALLOUT — I: Interface Segregation Principle (ISP)               ║
+// ╠══════════════════════════════════════════════════════════════════════════╣
+// ║  "Clients should not be forced to depend on methods they do not use."   ║
+// ║                                                                          ║
+// ║  This is the most complete ISP demonstration in the course.             ║
+// ║  The hierarchy is built bottom-up from granular contracts:              ║
+// ║                                                                          ║
+// ║    Readable ──┐                                                          ║
+// ║    Writable ──┴──▶ ReadWritable ──┐                                     ║
+// ║    Listable ──────────────────────┴──▶ FullStorage                      ║
+// ║                                                                          ║
+// ║  loadConfig()     type-hints Readable  — accepts all 3 backends         ║
+// ║  saveUpload()     type-hints ReadWritable — accepts LocalDisk + S3      ║
+// ║  printDirectory() type-hints Listable  — accepts LocalDisk only         ║
+// ║                                                                          ║
+// ║  Each function asks for EXACTLY the capability it needs — no more.      ║
+// ║  This is ISP applied to function signatures, not just class design.     ║
+// ╚══════════════════════════════════════════════════════════════════════════╝
 
 // ─────────────────────────────────────────────────────────────────────────────
 // LEVEL 1 — Granular, single-purpose interfaces (Interface Segregation)

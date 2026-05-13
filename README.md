@@ -34,17 +34,42 @@ htdocs/
 
 ---
 
+## 🧱 SOLID Principles — Where They Appear in This Course
+
+Every module in this course teaches one or more SOLID principles. This table is your map — you will recognise these when they appear in examples and challenges.
+
+| Principle | Full name | Primary location |
+|-----------|-----------|-----------------|
+| **S** | Single Responsibility | Lesson 1.0 (overview) · implicit throughout all modules |
+| **O** | Open/Closed | Lesson 1.0 (overview) · Lesson 1.1 Example 03 & Challenge (explicit callouts) |
+| **L** | Liskov Substitution | **Lesson 2.0** (full lesson) · Lesson 1.0 (overview) |
+| **I** | Interface Segregation | Lesson 1.0 (overview) · Lesson 1.1 Examples 02 & 05 (explicit callouts) |
+| **D** | Dependency Inversion | Lesson 1.0 (overview) · Lesson 1.1 Example 03 (preview callout) · **Modules 3 & 4** (full treatment) |
+
+Start with Lesson 1.0 to get the full picture before diving into Lesson 1.1.
+
+---
+
 ## Module 1 — OOP Building Blocks
 > **Folder:** `module-1-oop-building-blocks/`
-> **Goal:** Master the core OOP constructs that enforce clean architecture and enable polymorphism.
+> **Goal:** Master the core OOP constructs that enforce clean architecture and enable polymorphism. Understand where each SOLID principle lives before applying them in code.
+
+### Lesson 1.0 — SOLID Principles Overview ⭐ Start here
+- [ ] Read the full README — understand what each letter stands for and where it is taught
+- [ ] Run `examples/srp.php` — Single Responsibility (UserService split into three focused classes)
+- [ ] Run `examples/ocp.php` — Open/Closed (discount strategies without editing existing code)
+- [ ] Run `examples/lsp.php` — Liskov Substitution (Bird/Penguin hierarchy preview)
+- [ ] Run `examples/isp.php` — Interface Segregation (split storage contracts)
+- [ ] Run `examples/dip.php` — Dependency Inversion (ReportService with swappable backends)
+- [ ] Without looking at the README, write a one-sentence definition of each principle from memory
 
 ### Lesson 1.1 — Interfaces
 - [ ] What an interface is and why it exists (contracts, not implementation)
 - [ ] Defining and implementing a single interface
-- [ ] Implementing multiple interfaces on one class
-- [ ] Using interfaces as type hints for polymorphism
+- [ ] Implementing multiple interfaces on one class *(ISP callout in Example 02)*
+- [ ] Using interfaces as type hints for polymorphism *(OCP + DIP preview callout in Example 03)*
 - [ ] Interface constants
-- [ ] Interface inheritance (`extends` between interfaces)
+- [ ] Interface inheritance (`extends` between interfaces) *(ISP callout in Example 05)*
 - [ ] **Code Challenge:** Refactor a tightly coupled class to depend on an interface
 - [ ] **Quiz:** Interface design & polymorphism
 
@@ -70,7 +95,16 @@ htdocs/
 
 ## Module 2 — Advanced Types & Enums
 > **Folder:** `module-2-advanced-types/`
-> **Goal:** Strengthen your type system knowledge and learn the PHP 8.x features that make interfaces far more powerful.
+> **Goal:** Strengthen your type system knowledge and learn the PHP 8.x features that make interfaces far more powerful. Understand LSP deeply before writing covariant return types.
+
+### Lesson 2.0 — Liskov Substitution Principle (LSP) ⭐ Do before Lesson 2.1
+- [ ] Read the full README — preconditions, postconditions, invariants
+- [ ] Run `examples/01-the-violation.php` — four real violations (throwing override, no-op, instanceof guard, strengthened precondition)
+- [ ] Run `examples/02-fix-the-hierarchy.php` — each violation restructured correctly
+- [ ] Run `examples/03-covariance.php` — return types: narrowing is safe, widening is a PHP fatal error
+- [ ] Run `examples/04-contravariance.php` — parameter types: widening is safe, narrowing is a PHP fatal error
+- [ ] **Code Challenge:** Identify and fix three LSP violations in a CMS codebase
+- [ ] **Quiz:** LSP rules, covariance, contravariance
 
 ### Lesson 2.1 — Type Hinting & Return Types
 - [ ] Scalar types (`int`, `string`, `float`, `bool`) and `strict_types=1`
@@ -197,8 +231,8 @@ htdocs/
 
 | Module | Lessons | Code Challenges | Quizzes | Status |
 |--------|---------|-----------------|---------|--------|
-| 1 — OOP Building Blocks | 3 | 3 | 3 | `[ ] Not started` |
-| 2 — Advanced Types & Enums | 4 | 4 | 4 | `[ ] Not started` |
+| 1 — OOP Building Blocks | 4 (incl. Lesson 1.0) | 3 | 3 | `[ ] Not started` |
+| 2 — Advanced Types & Enums | 5 (incl. Lesson 2.0) | 5 | 5 | `[ ] Not started` |
 | 3 — Dependency Injection & IoC | 4 | 4 | 4 | `[ ] Not started` |
 | 4 — Container Automation | 4 | 4 | 4 | `[ ] Not started` |
 

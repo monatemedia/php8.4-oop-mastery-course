@@ -14,6 +14,27 @@ declare(strict_types=1);
  * We will swap notifiers in and out without touching OrderProcessor at all.
  */
 
+// ╔══════════════════════════════════════════════════════════════════════════╗
+// ║  SOLID CALLOUT — O: Open/Closed Principle (OCP)                         ║
+// ╠══════════════════════════════════════════════════════════════════════════╣
+// ║  "Open for extension, closed for modification."                         ║
+// ║                                                                          ║
+// ║  OrderProcessor::process() is CLOSED — it will never be edited again.  ║
+// ║  Yet it is OPEN for extension: add SlackNotifier, WhatsAppNotifier,     ║
+// ║  or any other channel by creating a new class — zero existing code      ║
+// ║  is touched.                                                             ║
+// ║                                                                          ║
+// ║  The VIOLATION would be: an if/elseif chain inside process() that       ║
+// ║  checks the channel type string and grows every time a new one is added.║
+// ║  See lesson-1.0-solid-overview/examples/ocp.php for the full violation. ║
+// ╠══════════════════════════════════════════════════════════════════════════╣
+// ║  SOLID CALLOUT — D: Dependency Inversion Principle (DIP) — PREVIEW      ║
+// ╠══════════════════════════════════════════════════════════════════════════╣
+// ║  OrderProcessor depends on the Notifier and Logger INTERFACES, not on  ║
+// ║  EmailNotifier or ConsoleLogger. High-level logic (OrderProcessor)      ║
+// ║  depends on an abstraction, not a detail. This is DIP in its simplest  ║
+// ║  form. Full coverage in Modules 3 and 4.                                ║
+// ╚══════════════════════════════════════════════════════════════════════════╝
 
 // ─────────────────────────────────────────────────────────────────────────────
 // The contract

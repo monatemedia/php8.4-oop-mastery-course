@@ -12,6 +12,23 @@ declare(strict_types=1);
  * both contracts by implementing both.
  */
 
+// ╔══════════════════════════════════════════════════════════════════════════╗
+// ║  SOLID CALLOUT — I: Interface Segregation Principle (ISP)               ║
+// ╠══════════════════════════════════════════════════════════════════════════╣
+// ║  "Clients should not be forced to depend on methods they do not use."   ║
+// ║                                                                          ║
+// ║  Watch how this example keeps interfaces SMALL and FOCUSED:             ║
+// ║   • Printable  — one method  (printOut)                                 ║
+// ║   • Exportable — two methods (exportToCsv, exportToJson)                ║
+// ║   • Archivable — one method  (archive)                                  ║
+// ║                                                                          ║
+// ║  ThumbnailImage only needs to print — it implements ONLY Printable.     ║
+// ║  It is NEVER forced to implement export or archive methods it can't use. ║
+// ║                                                                          ║
+// ║  The VIOLATION would be: one fat interface with all five methods,       ║
+// ║  forcing ThumbnailImage to stub out exportToCsv() with an exception.    ║
+// ║  See lesson-1.0-solid-overview/examples/isp.php for the full violation. ║
+// ╚══════════════════════════════════════════════════════════════════════════╝
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Two focused, single-purpose interfaces (Interface Segregation Principle)
